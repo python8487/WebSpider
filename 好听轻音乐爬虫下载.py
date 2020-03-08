@@ -48,14 +48,15 @@ for i in range(0,page):
 
 
 for i in range(0,len(songID)):
-	songurl= "http://f2.htqyy.com/play7/"+str(songID[i])+"/mp3/2"
+	songurl= "http://f2.htqyy.com/play7/"+str(songID[i])+"/mp3/3"
+    # 注意songurl 的地址参数会变，根据实际填写即可
 	songname=songName[i]
 
 	data=requests.get(songurl).content
 
 	print("正在下载好听轻音乐热播榜单第",i+1,"首歌:",songname)
 
-	with open("D:\\music\\htqmusic\\{}.mp3".format(songname),"wb") as f:   #将下载的MP3保存写入到指定位置
+	with open("D:\\music\\htqmusic\\{}.{}.mp3".format(i+1,songname),"wb") as f:   #将下载的MP3保存写入到指定位置
 		f.write(data)
 
 	time.sleep(1)
